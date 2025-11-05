@@ -1,0 +1,31 @@
+# === Шаблон торгового сетапа ITA ===
+# Название файла: setup_rules/template_setup.yaml
+
+setup_name: "Example RSI Bounce"
+
+description: >
+  Классический отскок от перепроданности по RSI.
+  Используется для демонстрации структуры сетапа ITA.
+
+pair: "BTC/USDT"
+
+entry_conditions:
+  - "RSI(14) < 30"
+  - "Цена закрытия выше SMA(50)"
+  - "Объем за последние 3 свечи растёт"
+
+entry_model:
+  name: "LTF_RSI_Model"
+  timeframe: "5m"
+  input_features: ["RSI", "SMA50", "Volume"]
+  output: "buy_probability"
+
+cancel_conditions:
+  - "RSI(14) > 45"
+  - "Появление противоположного сигнала на HTF"
+
+other_rules:
+  stop_loss: "2.5%"
+  take_profit: "5%"
+  max_active_signals: 1
+  comment: "Работает только в периоды умеренной волатильности"
