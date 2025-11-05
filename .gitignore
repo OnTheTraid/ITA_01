@@ -1,0 +1,125 @@
+# ============================================
+# PYTHON / BUILD
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+*.manifest
+*.spec
+
+# ============================================
+# ENVIRONMENTS
+# ============================================
+.venv/
+venv/
+ENV/
+env/
+*.env
+.env.*
+.venv*/
+.conda/
+__pypackages__/
+
+# ============================================
+# IDEs / EDITORS
+# ============================================
+.vscode/
+.idea/
+.spyproject/
+.ropeproject/
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# PREFECT / DATAFLOW / PIPELINES
+# ============================================
+.prefect/
+.prefectcloud/
+.orion/
+prefect-orion.db
+prefect.log
+
+# ============================================
+# DATA / CACHE / MODELS
+# ============================================
+data/
+datasets/
+cache/
+cached_data/
+artifacts/
+chroma_db/
+mlruns/
+tmp/
+temp/
+*.log
+logs/
+*.bak
+*.old
+*.swp
+*.swo
+
+# ============================================
+# DASH / STREAMLIT / FRONTEND
+# ============================================
+.streamlit/
+__streamlit_cache__/
+dash_cache/
+.reactflow/
+frontend_build/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ============================================
+# NOTEBOOKS / JUPYTER
+# ============================================
+.ipynb_checkpoints/
+*.ipynb_convert/
+*.nbconvert/
+.jupyter/
+*.ipynb_metadata/
+
+# ============================================
+# OS / SYSTEM FILES
+# ============================================
+Thumbs.db
+desktop.ini
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+ehthumbs.db
+Icon?
+.fseventsd
+.AppleDouble
+.LSOverride
+
+# ============================================
+# OTHER / OPTIONAL
+# ============================================
+__backup__/
+tempfiles/
+scratch/
+*.sqlite3
+*.db
+*.sqlite
+*.tmp
+*.pid
+*.gz
+*.zip
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.bak
+*.orig
