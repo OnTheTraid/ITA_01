@@ -1,0 +1,121 @@
+# ===============================================================
+# ITA Project — Dependency Manifest (v1.0)
+# Author: GPT-5 Architect & Dreyk
+# Purpose:
+#   Синхронизация входов/выходов между модулями ITA.
+#   Используется при командах: "Выполни манифест связей"
+# ===============================================================
+
+meta:
+  version: 1.0
+  last_updated: 2025-11-09
+  description: >
+    Централизованная карта архитектурных связей между всеми модулями проекта ITA.
+    Гарантирует соответствие параметров, контекстов и потоков данных.
+
+# ===============================================================
+# CORE CONTROL LAYER
+# ===============================================================
+
+SetupManager:
+  outputs:
+    - date_range
+    - mode
+    - symbol
+    - timeframe
+    - data_source
+    - credentials_path
+  consumers:
+    - CoreData.DataEngine
+    - Prefect.FlowController
+
+Prefect.FlowController:
+  inputs:
+    - date_range
+    - mode
+    - symbol
+    - timeframe
+  outputs:
+    - execution_context
+  consumers:
+    - CoreData.DataEngine
+    - CoreAI.TrainingPipeline
+
+# ===============================================================
+# CORE DATA LAYER
+# ===============================================================
+
+CoreData.DataEngine:
+  inputs:
+    - symbol
+    - timeframe
+    - date_range
+    - mode
+  outputs:
+    - raw_df
+    - processed_df
+  consumers:
+    - CoreData.MT5Connector
+    - CoreData.DataProcessor
+
+CoreData.MT5Connector:
+  inputs:
+    - symbol
+    - timeframe
+    - date_range
+    - mode
+    - credentials (from SetupManager via .env or context)
+  outputs:
+    - historical_parquet (BACKTEST)
+    - live_parquet (LIVE)
+  consumers:
+    - CoreData.DataProcessor
+
+CoreData.DataProcessor:
+  inputs:
+    - raw_df
+  outputs:
+    - normalized_df
+    - feature_df
+  consumers:
+    - CoreAI.ModelTrainer
+    - CoreAnalytics.StatisticsEngine
+
+# ===============================================================
+# CORE AI / ANALYTICS LAYER
+# ===============================================================
+
+CoreAI.ModelTrainer:
+  inputs:
+    - feature_df
+    - setup_context
+  outputs:
+    - trained_model
+  consumers:
+    - CoreAI.Evaluator
+
+CoreAnalytics.StatisticsEngine:
+  inputs:
+    - normalized_df
+  outputs:
+    - analytics_report
+    - data_summary
+
+# ===============================================================
+# SUPPORT / INFRA LAYER
+# ===============================================================
+
+LoggingEngine:
+  inputs:
+    - all modules
+  outputs:
+    - logs/coredata
+    - logs/ai
+    - logs/flow
+
+EnvManager:
+  outputs:
+    - .env
+  consumers:
+    - SetupManager
+    - CoreData.MT5Connector
