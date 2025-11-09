@@ -51,17 +51,13 @@ prefect.log
 # ============================================
 # DATA / CACHE / MODELS
 # ============================================
-data/
 datasets/
-cache/
-cached_data/
 artifacts/
 chroma_db/
 mlruns/
 tmp/
 temp/
 *.log
-logs/
 *.bak
 *.old
 *.swp
