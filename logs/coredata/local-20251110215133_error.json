@@ -1,0 +1,6 @@
+{
+  "context_id": "local-20251110215133",
+  "status": "FAILED",
+  "error": "cannot import name 'run_integrity_checks' from 'src.M02_CoreData.data_integrity_checker' (D:\\ITA\\ITA_01\\src\\M02_CoreData\\data_integrity_checker.py)",
+  "timestamp": "2025-11-10T19:51:33.253666"
+}

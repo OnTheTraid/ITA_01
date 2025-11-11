@@ -84,21 +84,21 @@ ITA_01/
 │   └── __init__.py
 │
 └── src/                          # исходный код проекта
-    ├── 01_UserRequest/
-    ├── 02_CoreData/
-    ├── 03_DataStorage/
-    ├── 04_MarketTools/
-    ├── 05_SetupManager/
-    ├── 06_BacktestManager/
-    ├── 07_Visualization/
-    ├── 08_GPT_VisionFlow/
-    ├── 09_Learning_Module/
-    ├── 10_Outputs_Integrations/
-    ├── 11_Orchestration/
-    ├── 12_Config_Security/
-    ├── 13_QA_Testing/
-    ├── 14_UX_Interface/
-    ├── 15_Feedback_Learning/
+    ├── M01_UserRequest/
+    ├── M02_CoreData/
+    ├── M03_DataStorage/
+    ├── M04_MarketTools/
+    ├── M05_SetupManager/
+    ├── M06_BacktestManager/
+    ├── M07_Visualization/
+    ├── M08_GPT_VisionFlow/
+    ├── M09_Learning_Module/
+    ├── M10_Outputs_Integrations/
+    ├── M11_Orchestration/
+    ├── M12_Config_Security/
+    ├── v13_QA_Testing/
+    ├── v14_UX_Interface/
+    ├── M15_Feedback_Learning/
     └── utils/
 ```
 📘 Пояснения по основным папкам  

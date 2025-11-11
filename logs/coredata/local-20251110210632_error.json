@@ -1,0 +1,6 @@
+{
+  "context_id": "local-20251110210632",
+  "status": "FAILED",
+  "error": "[MT5] Failed to connect ((-2, 'Invalid \"login\" argument'))",
+  "timestamp": "2025-11-10T19:06:33.110175"
+}

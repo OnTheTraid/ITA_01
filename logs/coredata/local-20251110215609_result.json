@@ -1,0 +1,9 @@
+{
+  "context_id": "local-20251110215609",
+  "symbol": "DE40",
+  "mode": "BACKTEST",
+  "status": "SUCCESS",
+  "rows": 3550,
+  "path": "D:\\ITA\\ITA_01\\data\\archive\\DE40\\M15\\DE40_M15_backtest_20251110215609.parquet",
+  "timestamp": "2025-11-10T19:56:09.540742"
+}
