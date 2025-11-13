@@ -1,0 +1,24 @@
+{
+  "setup_id": "TEST_SETUP_RULES",
+  "version": "v1",
+  "rules": {
+    "entry": {
+      "type": "breakout",
+      "threshold": 1.5
+    },
+    "exit": {
+      "type": "stop",
+      "value": 0.8
+    },
+    "risk": {
+      "rr": 2.0
+    }
+  },
+  "description": "Test rule version",
+  "created_at": "2025-11-13T19:07:01.280284+00:00",
+  "tags": [
+    "unit_test",
+    "example"
+  ],
+  "status": "deprecated"
+}
