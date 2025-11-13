@@ -1,17 +1,18 @@
-# Основной конфигурационный файл проекта
+# ==========================================================
+# Основной конфигурационный файл проекта ITA
+# ==========================================================
+
 coredata:
   mt5:
-    use_env_credentials: true
-    timezone: "UTC"
-
+    use_env_credentials: true         # Использовать логин/пароль из переменных окружения
+    timezone: "UTC"                   # Таймзона данных MT5
   storage:
-    archive_path: "data/archive/raw"
-    cache_path: "data/cache"
+    archive_path: "data/archive/raw"  # Путь к архиву исходных данных MT5
+    cache_path: "data/cache"          # Путь к кэшу очищенных данных
 
-logging:
-  level: "INFO"
-  path: "logs/coredata/mt5_connector.log"
-
+# ----------------------------------------------------------
+# Пути проекта (универсальные)
+# ----------------------------------------------------------
 paths:
   data_root: "data/"
   archive_root: "data/archive/"
@@ -19,3 +20,37 @@ paths:
   results_root: "data/results/"
   exchange_root: "data/exchange/"
   logs_root: "logs/"
+
+# ----------------------------------------------------------
+# Результаты, снапшоты и артефакты (для M03, M05, M06)
+# ----------------------------------------------------------
+results:
+  provenance_path: "data/results/provenance"     # Снапшоты запусков (M03_RunSnapshot)
+  rules_path: "data/rules"                       # Версии правил и сетапов (M03_RuleRegistry)
+  backtests_path: "data/results/backtests"       # Отчёты бектестов (M06_Backtester)
+  live_path: "data/results/live"                 # Живые результаты (M06_Backtester Live)
+  analytics_path: "data/results/analytics"       # Аналитика и метрики (M04_Analytics)
+
+# ----------------------------------------------------------
+# Логирование
+# ----------------------------------------------------------
+logging:
+  level: "INFO"
+  root_path: "logs/"
+  modules:
+    coredata: "logs/M01_CoreData/coredata.log"
+    datastorage: "logs/M03_DataStorage/persistent_store.log"
+    runsnapshot: "logs/M03_DataStorage/run_snapshot.log"
+    versionregistry: "logs/M03_DataStorage/version_registry.log"
+    backtester: "logs/M06_Backtester/backtester.log"
+    setupmanager: "logs/M05_SetupManager/setup_manager.log"
+
+# ----------------------------------------------------------
+# Общие параметры проекта
+# ----------------------------------------------------------
+general:
+  timezone: "Europe/Kyiv"
+  project_name: "ITA - Intelligent Trading Agent"
+  author: "Maxim Malysh"
+  version: "1.0.0"
+  environment: "production"

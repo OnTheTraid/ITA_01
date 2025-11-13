@@ -1,0 +1,25 @@
+type: object
+required:
+  - run_id
+  - setup_id
+  - rule_version
+  - data_hash
+  - git_commit_hash
+  - env
+  - timestamp
+properties:
+  run_id: { type: string }
+  setup_id: { type: string }
+  rule_version: { type: string }
+  data_hash: { type: string }
+  data_range:
+    type: array
+    items: { type: string }
+  git_commit_hash: { type: string }
+  env:
+    type: object
+    properties:
+      python: { type: string }
+      os: { type: string }
+  meta:
+    type: object
