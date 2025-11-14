@@ -21,6 +21,11 @@ paths:
   exchange_root: "data/exchange/"
   logs_root: "logs/"
 
+  # Новые пути для DataRetention
+  analytics_root: "data/results/analytics/"
+  backtests_root: "data/results/backtests/"
+  temp_root: "data/temp/"
+
 # ----------------------------------------------------------
 # Результаты, снапшоты и артефакты (для M03, M05, M06)
 # ----------------------------------------------------------
@@ -30,6 +35,9 @@ results:
   backtests_path: "data/results/backtests"       # Отчёты бектестов (M06_Backtester)
   live_path: "data/results/live"                 # Живые результаты (M06_Backtester Live)
   analytics_path: "data/results/analytics"       # Аналитика и метрики (M04_Analytics)
+
+  # Новое — отчёты очистки по DataRetention
+  retention_reports_path: "data/results/retention"
 
 # ----------------------------------------------------------
 # Логирование
@@ -44,6 +52,33 @@ logging:
     versionregistry: "logs/M03_DataStorage/version_registry.log"
     backtester: "logs/M06_Backtester/backtester.log"
     setupmanager: "logs/M05_SetupManager/setup_manager.log"
+
+    # Логи подмодуля DataRetention (новое)
+    data_retention: "logs/M03_DataStorage/data_retention.log"
+
+# ----------------------------------------------------------
+# Политики хранения данных (M03_DataStorage — DataRetention)
+# ----------------------------------------------------------
+retention:
+  enabled: true
+
+  policies:
+    cache:
+      ttl_days: 7
+    archive:
+      ttl_days: 90
+    backtests:
+      ttl_days: 30
+    analytics:
+      ttl_days: 60
+    temp:
+      ttl_days: 3
+
+  disk_limits:
+    backtests:
+      max_gb: 3
+    analytics:
+      max_gb: 5
 
 # ----------------------------------------------------------
 # Общие параметры проекта

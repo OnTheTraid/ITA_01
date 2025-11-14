@@ -1,0 +1,20 @@
+retention:
+  enabled: true
+
+  policies:
+    cache:
+      ttl_days: 7
+    archive:
+      ttl_days: 90
+    backtests:
+      ttl_days: 30
+    analytics:
+      ttl_days: 60
+    temp:
+      ttl_days: 3
+
+  disk_limits:
+    backtests:
+      max_gb: 3
+    analytics:
+      max_gb: 5

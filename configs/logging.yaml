@@ -1,1 +1,11 @@
-# Logging configuration
+logging:
+  level: "INFO"
+  root_path: "logs/"
+  modules:
+    coredata: "logs/M02_CoreData/coredata.log"
+    datastorage: "logs/M03_DataStorage/persistent_store.log"
+    runsnapshot: "logs/M03_DataStorage/run_snapshot.log"
+    versionregistry: "logs/M03_DataStorage/version_registry.log"
+    data_retention: "logs/M03_DataStorage/data_retention.log"
+    backtester: "logs/M06_BacktestManager/backtester.log"
+    setupmanager: "logs/M05_SetupManager/setup_manager.log"
